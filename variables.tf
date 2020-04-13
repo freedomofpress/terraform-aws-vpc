@@ -1,11 +1,11 @@
 variable "environment" {
   description = "A logical name that will be used as prefix and tag for the created resources."
-  type        = "string"
+  type        = string
   default     = "vpc-dev"
 }
 
 variable "aws_region" {
-  type        = "string"
+  type        = string
   description = "The Amazon region."
 }
 
@@ -15,7 +15,7 @@ variable "cidr_block" {
 }
 
 variable "availability_zones" {
-  type = "map"
+  type = map(list(string))
 
   default = {
     us-east-1      = ["us-east-1a", "us-east-1b", "us-east-1c", "us-east-1d", "us-east-1e", "us-east-1f"]
@@ -50,3 +50,4 @@ variable "public_subnet_map_public_ip_on_launch" {
   description = "Set the default behavior for instances created in the VPC. If true by default a publi ip will be assigned."
   default     = "false"
 }
+
